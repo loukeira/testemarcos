@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "builds": [{"src":"/","use":"@vercel/node"}],"routes":[{"src":"(.*)"}],
     "functions": {
       "index.js": {
         "runtime": "nodejs20.x"
