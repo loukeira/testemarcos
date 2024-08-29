@@ -1,11 +1,8 @@
 {
-  "name": "my-project",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "node node_modules/puppeteer/install.js"
-  },
-  "dependencies": {
-    "@google-cloud/functions-framework": "^3.0.0",
-    "puppeteer": "^20.0.0"
+  "version": 2,
+  "functions": {
+    "api/index.js": {
+      "runtime": "nodejs18.x"  // Ajuste conforme necessário
+    }
   }
 }
