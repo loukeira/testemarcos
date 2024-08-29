@@ -1,10 +1,11 @@
 {
-    "version": 2,
-    "builds": [{"src":"/","use":"@vercel/node"}],"routes":[{"src":"(.*)"}],
-    "functions": {
-      "index.js": {
-        "runtime": "nodejs20.x"
-      }
-    }
+  "name": "my-project",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node node_modules/puppeteer/install.js"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.0.0",
+    "puppeteer": "^20.0.0"
   }
-  
+}
