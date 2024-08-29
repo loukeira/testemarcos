@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-exports.handler = async (req, res) => {
+module.exports = async (req, res) => {
   try {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
@@ -26,15 +26,11 @@ exports.handler = async (req, res) => {
 
     let screenshotBuffer;
     if (captureFullPage) {
-      // Capturar a página inteira
       screenshotBuffer = await page.screenshot({ fullPage: true });
       console.log('Screenshot da página inteira capturado.');
     } else {
-      // Selecionar o elemento específico para captura usando seletor CSS
-      
       const element = await page.$('#live-table > section > div > div:nth-child(1)');
       if (element) {
-        // Capturar o screenshot do elemento específico
         screenshotBuffer = await element.screenshot();
         console.log('Screenshot do elemento capturado.');
       } else {
@@ -47,7 +43,6 @@ exports.handler = async (req, res) => {
 
     await browser.close();
 
-    // Enviar a imagem como resposta
     res.set('Content-Type', 'image/png');
     res.send(screenshotBuffer);
   } catch (error) {
